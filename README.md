@@ -39,4 +39,4 @@ Further columns were removed from the data set which were regarded as not pertin
 
 Our initial analysis of the data started with a pairplot using the Python Seaborn library.  Initial results using all available continuous variables resulted in no obvious associations or correlations, as seen below:
 
-
+![initial data](images/initialdata.png)
