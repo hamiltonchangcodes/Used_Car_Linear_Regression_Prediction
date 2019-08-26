@@ -22,9 +22,13 @@ Additionally, the data was pruned back to remove high-priced outliers representi
 
 Further columns were removed from the data set which were regarded as not pertinent to our model.  This included the following categories:
 
+
 VIN number 
+
 Seller stock number
+
 Internal color 
+
 Trim  
 
 - VIN number and seller stock number were removed as they were not pertinent to modeling price comparison, although we do recognize they can play a role in a customer's purchase decision via a VIN lookup or enquiries of availability to the particular dealer listing the car.  
