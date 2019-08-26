@@ -54,7 +54,7 @@ Given that the R² values really never go to ranges we deem satisfactory to acco
 
 <img src="images/alltogether_pt1.png" width='350' height='350'><img src="images/alltogether_pt2.png" width='350' height='350'>
 
-In order to improve our correlation, then next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  This greatly increased our R² to .752 and our P-values remained in line within our established .05 limit.  We did attempt to take the natural log of the other variables, but it produced no signifnicant change and so we did not pursue alternative methods.  Our OLS and residual graphs are below:
+In order to improve our correlation, the next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  This greatly increased our R² to .752 and our P-values remained in line within our established .05 limit.  We did attempt to take the natural log of the other variables, but it produced no signifnicant change and so we did not pursue alternative methods.  Our OLS and residual graphs are below:
 
 <img src="images/price_log.png" width='350' height='350'><img src="images/price_log_graph.png" width='350' height='350'>
 
