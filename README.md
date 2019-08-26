@@ -45,4 +45,8 @@ Further examination through the OLS Stats function from the SciPy library reveal
 
 <img src="images/price_citympg.png" width='250' height='250'><img src="images/price_highwaympg.png" width='250' height='250'><img src="images/price_mileage.png" width='250' height='250'>
 
+As an experiment, we also attempted to run a linear regression on the categorical variable **makes**.  The results provided a somewhat stronger R² value, which told us that the make of each car contributed somewhat to total pricing of the car.  The results of our linear regression are below:
 
+<img src="images/price_make_ols.png" width='250' height'250'>
+
+Given that 
