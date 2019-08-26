@@ -43,6 +43,6 @@ Our initial analysis of the data started with a pairplot using the Python Seabor
 
 Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliable use any of the continuous variables indivudually to help predict price.  The results of our regression analysis are below:
 
-![price/city](images/price_citympg.png =250x250)![price/highway](images/price_highwaympg.png =250x250)![price/mileage](images/price_mileage.png =250x250)
+![price/city]("images/price_citympg.png" =250x250)![price/highway]("images/price_highwaympg.png" =250x250)![price/mileage]("images/price_mileage.png" =250x250)
 
 
