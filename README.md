@@ -75,7 +75,7 @@ Based on our refinements, we selected the model that combined all variables with
 
 <img src="images/price_log.png" width='350' height='350'><img src="images/regpredict.png" width='350' height='350'><img src="images/residpredict.png" width='350' height='350'>
 
-Finally, based on the coefficients we obtained, we were able to create a working function that will allow anyone with a bit of Python knowledge to calculate the price of their own (![used car](Car Model Prices.ipynb)).  We invite you to try it out.  All you need to do is run the first 3 entries, enter the requested numbers, then run the last 2 entries and you'll have your price.
+Finally, based on the coefficients we obtained, we were able to create a working function that will allow anyone with a bit of Python knowledge to calculate the price of their own [used car](Car Model Prices.ipynb).  We invite you to try it out.  All you need to do is run the first 3 entries, enter the requested numbers, then run the last 2 entries and you'll have your price.
 
 <img src="images/calculator_function.png">
 
