@@ -51,8 +51,23 @@ As an experiment, we also attempted to run a linear regression on the categorica
 
 Given that the R² values really never go to ranges we deem satisfactory to accomodate the randomness we are seeing, our next step was to combine all variables and see if that would improve our results.  This dramatically improved our results, increasing our R² values to .709.  In addition, while our P-values were well within our established .05 limit, we were able to discern a few interesting coefficients that better described the relation between our variables and our target variable.
 
-<img src="images/alltogether_pt1.png" width='250' height='250'><img src="images/alltogether_pt2.png" width='250' height'250'>
+<img src="images/alltogether_pt1.png" width='250' height='250'><img src="images/alltogether_pt2.png" width='250' height='250'>
 
-In order to improve our correlation, then next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  Our OLS is below:
+In order to improve our correlation, then next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  This greatly increased our R² to .752 and our P-values remained in line within our established .05 limit.  We did attempt to take the natural log of the other variables, but it produced no signifnicant change and so we did not pursue alternative methods.  Our OLS and residual graphs are below:
+
+<img src="images/price_log.png" width='250' height='250'><img src="images/price_log_graph.png" width='250' height='250'>
+
+Due to the significant increases in price correlation we were seeing with some of the more recognized high end brands, we also explored the effect of luxury vehichles on the price of a used car.  We deemed this a necessary investigation as many of the farther flung points in our target variable were represented by luxury vehichles.  We grouped the vehichles recognized as luxury vehichles into their own separate variable in our data frame where if the car was a luxury vehichle, the new column would reflect a "1" via the following code:
+
+```python
+luxury = ['Mercedes-Benz', 'BMW', 'Lexus', 'Acura', 'Audi', 'INFINITI', 'Cadillac', 'Land Rover', 'Volvo', 'Lincoln', 'Maserati', 'Alfa Romeo', 'Porsche', 'Jaguar']
+df['luxury'] = np.where(df['make'].isin(luxury), 1, 0);
+```
+
+This is a bit biased based on our own opinion of what we consider a "luxury" make.  For example, despite its price we left off Mini, Volkswagen, and Buick, but included Lincoln and Cadillac.  Whether or not these brands should or should not have been included is debatable based on one's perception of the brand, and we may re-evaluate our luxury critera in further exploration of these data to refine our model more.  
+
+
+
+
 
 
