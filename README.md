@@ -1,5 +1,5 @@
-# mod2_project
-mod 2 final project
+# Used Car Sale Price Linear Prediction Model
+
 
 # Hypothesis
 
@@ -36,6 +36,7 @@ Further columns were removed from the data set which were regarded as not pertin
 - Lastly **trim**, while available as a category was frequently NOT filled in by dealers.  That information is typically assumed with the particular car model, and through enquiries we were able to determine that any extra packages that a car may possess is not factored into pricing by dealerships looking to buy tradeins which they then turn around to sell.  
 
 # Analysis
+![code here](03_EDA.ipynb)
 
 Our initial analysis of the data started with a pairplot using the Python Seaborn library.  Initial results using all available continuous variables resulted in no obvious associations or correlations, as seen below:
 
@@ -43,19 +44,19 @@ Our initial analysis of the data started with a pairplot using the Python Seabor
 
 Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliable use any of the continuous variables indivudually to help predict price.  The results of our regression analysis are below:
 
-<img src="images/price_citympg.png" width='250' height='250'><img src="images/price_highwaympg.png" width='250' height='250'><img src="images/price_mileage.png" width='250' height='250'>
+<img src="images/price_citympg.png" width='350' height='350'><img src="images/price_highwaympg.png" width='350' height='350'><img src="images/price_mileage.png" width='350' height='350'>
 
 As an experiment, we also attempted to run a linear regression on the categorical variable **makes**.  The results provided a somewhat stronger R² value, which told us that the make of each car contributed somewhat to total pricing of the car.  The results of our linear regression are below:
 
-<img src="images/price_make_ols.png" width='250' height='250>
+<img src="images/price_make_ols.png" width='350' height='350>
 
-Given that the R² values really never go to ranges we deem satisfactory to accomodate the randomness we are seeing, our next step was to combine all variables and see if that would improve our results.  This dramatically improved our results, increasing our R² values to .709.  In addition, while our P-values were well within our established .05 limit, we were able to discern a few interesting coefficients that better described the relation between our variables and our target variable.
+Given that the R² values really never go to ranges we deem satisfactory to accomodate the randomness we are seeing, our next step was to combine all variables and see if that would improve our results, setting Acura as our control make.  This dramatically improved our results, increasing our R² values to .709.  In addition, while our P-values were well within our established .05 limit, we were able to discern a few interesting coefficients that better described the relation between our variables and our target variable.
 
-<img src="images/alltogether_pt1.png" width='250' height='250'><img src="images/alltogether_pt2.png" width='250' height='250'>
+<img src="images/alltogether_pt1.png" width='350' height='350'><img src="images/alltogether_pt2.png" width='350' height='350'>
 
 In order to improve our correlation, then next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  This greatly increased our R² to .752 and our P-values remained in line within our established .05 limit.  We did attempt to take the natural log of the other variables, but it produced no signifnicant change and so we did not pursue alternative methods.  Our OLS and residual graphs are below:
 
-<img src="images/price_log.png" width='250' height='250'><img src="images/price_log_graph.png" width='250' height='250'>
+<img src="images/price_log.png" width='350' height='350'><img src="images/price_log_graph.png" width='350' height='350'>
 
 Due to the significant increases in price correlation we were seeing with some of the more recognized high end brands, we also explored the effect of luxury vehichles on the price of a used car.  We deemed this a necessary investigation as many of the farther flung points in our target variable were represented by luxury vehichles.  We grouped the vehichles recognized as luxury vehichles into their own separate variable in our data frame where if the car was a luxury vehichle, the new column would reflect a "1" via the following code:
 
@@ -64,7 +65,13 @@ luxury = ['Mercedes-Benz', 'BMW', 'Lexus', 'Acura', 'Audi', 'INFINITI', 'Cadilla
 df['luxury'] = np.where(df['make'].isin(luxury), 1, 0);
 ```
 
-This is a bit biased based on our own opinion of what we consider a "luxury" make.  For example, despite its price we left off Mini, Volkswagen, and Buick, but included Lincoln and Cadillac.  Whether or not these brands should or should not have been included is debatable based on one's perception of the brand, and we may re-evaluate our luxury critera in further exploration of these data to refine our model more.  
+This is a bit biased based on our own opinion of what we consider a "luxury" make.  For example, despite its price we left off Mini, Volkswagen, and Buick, but included Lincoln and Cadillac.  Whether or not these brands should or should not have been included is debatable based on one's perception of the brand, and we may re-evaluate our luxury critera in further exploration of these data to refine our model more.  In the end, our luxury investigation yielded some interesting information, but did not help much in the way of correlation.  Of course, we understand isolating for a selection of outliers will not help us refine our model, but it did yield a correlation of $8208.  That is, having a luxury car is likely to increase the resale value of your car by about $8208 against the control make. Its nice to know the effect having a luxury car will have against other cars, or what someone looking to sell their car is competing against.  Our OLS and residual graphs are below:
+
+<img src="images/all_with_luxury.png" width='350' height='350'><img src="images/luxury_model.png" width='350' height='350'>
+
+# Final Model
+
+Based on our refinements, we selected the model that combined all variables with the natural log of our target variable.  Due to the 
 
 
 
