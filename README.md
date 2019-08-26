@@ -7,9 +7,9 @@ Our project is an exploration as to whether we can use statistical analysis to p
 
 # Data Collection and Cleaning
 
-Through scraping of Cars.com, we were able to obtain 2607 observations post cleaning.  Our criteria was that these were dealer sold only, located within 10 miles of zip code 10004, no restriction on make or models, and that the model years were limited between 2014 to 2018.  These obeservations, post scraping were stored in 2 separate JSON files representing the 2 attempts we made to scrape data, the first to test our scraping code, the second to increase our sample size and avoid being blocked from the page altogether.  A third attempt was made to increase our sample size, however this led to our IP address being blocked for 2 days and thus we were unable to increase our sample size in the time given.
+Through scraping of Cars.com (![code here)](01_webscraping-final.ipynb)), we were able to obtain 2607 observations post cleaning.  Our criteria was that these were dealer sold only, located within 10 miles of zip code 10004, no restriction on make or models, and that the model years were limited between 2014 to 2018.  These observations, post scraping were stored in 2 separate JSON files representing the 2 attempts we made to scrape data, the first to test our scraping code, the second to increase our sample size and avoid being blocked from the page altogether.  A third attempt was made to increase our sample size, however this led to our IP address being blocked for 2 days and thus we were unable to increase our sample size in the time given.
 
-Factors that were cleaned included observations where information in the particular listing was not available for the below categories:  
+Factors that were cleaned included observations where information in the particular listing was not available for the below categories(![code here](02_Clean_and_Prepare_Data.ipynb)):  
 
 
 **Mileage**
@@ -49,4 +49,10 @@ As an experiment, we also attempted to run a linear regression on the categorica
 
 <img src="images/price_make_ols.png" width='250' height='250>
 
-Given that 
+Given that the R² values really never go to ranges we deem satisfactory to accomodate the randomness we are seeing, our next step was to combine all variables and see if that would improve our results.  This dramatically improved our results, increasing our R² values to .709.  In addition, while our P-values were well within our established .05 limit, we were able to discern a few interesting coefficients that better described the relation between our variables and our target variable.
+
+<img src="images/alltogether_pt1.png" width='250' height='250'><img src="images/alltogether_pt2.png" width='250' height'250'>
+
+In order to improve our correlation, then next step we took was to take the natural log of our target variable in order to see if we could further refine our results.  Our OLS is below:
+
+
