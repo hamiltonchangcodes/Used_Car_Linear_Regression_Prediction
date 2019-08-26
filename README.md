@@ -44,11 +44,11 @@ Our initial analysis of the data started with a pairplot using the Python Seabor
 
 Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliable use any of the continuous variables indivudually to help predict price.  The results of our regression analysis are below:
 
-<img src="images/price_citympg.png" width='350' height='350'><img src="images/price_highwaympg.png" width='350' height='350'><img src="images/price_mileage.png" width='350' height='350'>
+<img src="images/price_citympg.png" width='300' height='300'><img src="images/price_highwaympg.png" width='300' height='300'><img src="images/price_mileage.png" width='300' height='300'>
 
 As an experiment, we also attempted to run a linear regression on the categorical variable **makes**.  The results provided a somewhat stronger R² value, which told us that the make of each car contributed somewhat to total pricing of the car.  The results of our linear regression are below:
 
-<img src="images/price_make_ols.png" width='350' height='350>
+<img src="images/price_make_ols.png" width='350' height='350'>
 
 Given that the R² values really never go to ranges we deem satisfactory to accomodate the randomness we are seeing, our next step was to combine all variables and see if that would improve our results, setting Acura as our control make.  This dramatically improved our results, increasing our R² values to .709.  In addition, while our P-values were well within our established .05 limit, we were able to discern a few interesting coefficients that better described the relation between our variables and our target variable.
 
@@ -71,10 +71,12 @@ This is a bit biased based on our own opinion of what we consider a "luxury" mak
 
 # Final Model
 
-Based on our refinements, we selected the model that combined all variables with the natural log of our target variable.  Due to the 
+Based on our refinements, we selected the model that combined all variables with the natural log of our target variable.  Due to the high R² value we felt it was the most valuable model thus far.  Further refinement however should be done to increase the viability of the model.  Below is a recap of our OLS and residual, along with a linear regression plotting actual price with predicted price.
 
+<img src="images/price_log.png" width='350' height='350'><img src="images/regpredict.png" width='350' height='350'><img src="images/residpredict.png" width='350' height='350'>
 
+Finally, based on the coefficients we obtained, we were able to create a working function that will allow anyone with a bit of Python knowledge to calculate the price of their own ![used car](Car Model Prices.ipynb).  We invite you to try it out.  All you need to do is run the first 3 entries, enter the requested numbers, then run the last 2 entries and you'll have your price.
 
-
+<img src="images/calculator_function.png>
 
 
