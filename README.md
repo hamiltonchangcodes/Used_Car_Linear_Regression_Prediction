@@ -1,15 +1,15 @@
 # Used Car Sale Price Linear Prediction Model
 
 
-# Hypothesis
+## Hypothesis
 
 Our project is an exploration as to whether we can use statistical analysis to predict the price of a used car based on the variables typically supplied by auto dealers and manufacturers.
 
-# Data Collection and Cleaning
+## Data Collection and Cleaning
 
-Through scraping of Cars.com (![code here)](01_webscraping-final.ipynb)), we were able to obtain 2607 observations post cleaning.  Our criteria was that these were dealer sold only, located within 10 miles of zip code 10004, no restriction on make or models, and that the model years were limited between 2014 to 2018.  These observations, post scraping were stored in 2 separate JSON files representing the 2 attempts we made to scrape data, the first to test our scraping code, the second to increase our sample size and avoid being blocked from the page altogether.  A third attempt was made to increase our sample size, however this led to our IP address being blocked for 2 days and thus we were unable to increase our sample size in the time given.
+Through scraping of Cars.com ([code here)](01_webscraping-final.ipynb)), we were able to obtain 2607 observations post cleaning.  Our criteria was that these were dealer sold only, located within 10 miles of zip code 10004, no restriction on make or models, and that the model years were limited between 2014 to 2018.  These observations, post scraping were stored in 2 separate JSON files representing the 2 attempts we made to scrape data, the first to test our scraping code, the second to increase our sample size and avoid being blocked from the page altogether.  A third attempt was made to increase our sample size, however this led to our IP address being blocked for 2 days and thus we were unable to increase our sample size in the time given.
 
-Factors that were cleaned included observations where information in the particular listing was not available for the below categories(![code here](02_Clean_and_Prepare_Data.ipynb)):  
+Factors that were cleaned included observations where information in the particular listing was not available for the below categories([code here](02_Clean_and_Prepare_Data.ipynb)):  
 
 
 **Mileage**
@@ -35,12 +35,12 @@ Further columns were removed from the data set which were regarded as not pertin
 - **Internal color** was judged as immaterial to value as manufacturers typically match certain interior colors with external colors, leaving very little choice for the consumer.  While certainly relevant to a buyer's interest, unless the color was unusual or custom, it was estimated that it would have little bearing on price.  We did check the colors present in the data set and did not notice any that particularly stood out as being a custom job.  Again, as with VIN and Stock Number, they may effect whether or not the car is purchased, but does not affect the final price.
 - Lastly **trim**, while available as a category was frequently NOT filled in by dealers.  That information is typically assumed with the particular car model, and through enquiries we were able to determine that any extra packages that a car may possess is not factored into pricing by dealerships looking to buy tradeins which they then turn around to sell.  
 
-# Analysis
-![code here](03_EDA.ipynb)
+## Analysis
+[code here](03_EDA.ipynb)
 
 Our initial analysis of the data started with a pairplot using the Python Seaborn library.  Initial results using all available continuous variables resulted in no obvious associations or correlations, as seen below:
 
-![initial data](images/initialdata.png)
+[initial data](images/initialdata.png)
 
 Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliable use any of the continuous variables indivudually to help predict price.  The results of our regression analysis are below:
 
@@ -69,13 +69,13 @@ This is a bit biased based on our own opinion of what we consider a "luxury" mak
 
 <img src="images/all_with_luxury.png" width='350' height='350'><img src="images/luxury_model.png" width='350' height='350'>
 
-# Final Model
+## Final Model
 
 Based on our refinements, we selected the model that combined all variables with the natural log of our target variable.  Due to the high R² value we felt it was the most valuable model thus far.  Further refinement however should be done to increase the viability of the model.  Below is a recap of our OLS, along with a linear regression plotting actual price with predicted price and finally the residuals for our model.
 
 <img src="images/price_log.png" width='350' height='350'><img src="images/regpredict.png" width='350' height='350'><img src="images/residpredict.png" width='350' height='350'>
 
-Finally, based on the coefficients we obtained, we were able to create a working function that will allow anyone with a bit of Python knowledge to calculate the price of their own ![used car](Car Model Prices.ipynb).  We invite you to try it out.  All you need to do is run the first 3 entries, enter the requested numbers, then run the last 2 entries and you'll have your price.
+Finally, based on the coefficients we obtained, we were able to create a working function that will allow anyone with a bit of Python knowledge to calculate the price of their own [used car](Car Model Prices.ipynb).  We invite you to try it out.  All you need to do is run the first 3 entries, enter the requested numbers, then run the last 2 entries and you'll have your price.
 
 <img src="images/calculator_function.png">
 
