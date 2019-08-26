@@ -42,7 +42,7 @@ Our initial analysis of the data started with a pairplot using the Python Seabor
 
 [initial data](images/initialdata.png)
 
-Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliable use any of the continuous variables indivudually to help predict price.  The results of our regression analysis are below:
+Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliably use any of the continuous variables individually to help predict price.  The results of our regression analysis are below:
 
 <img src="images/price_citympg.png" width='300' height='300'><img src="images/price_highwaympg.png" width='300' height='300'><img src="images/price_mileage.png" width='300' height='300'>
 
