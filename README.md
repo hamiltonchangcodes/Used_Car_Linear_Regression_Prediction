@@ -40,7 +40,7 @@ Further columns were removed from the data set which were regarded as not pertin
 
 Our initial analysis of the data started with a pairplot using the Python Seaborn library.  Initial results using all available continuous variables resulted in no obvious associations or correlations, as seen below:
 
-[initial data](images/initialdata.png)
+<img src="images/initialdata.png">
 
 Further examination through the OLS Stats function from the SciPy library revealed some correlation, but not enough to reliably use any of the continuous variables individually to help predict price.  The results of our regression analysis are below:
 
