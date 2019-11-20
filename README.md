@@ -79,4 +79,5 @@ Finally, based on the coefficients we obtained, we were able to create a working
 
 <img src="images/calculator_function.png">
 
-
+This is now available online here:
+https://usedcarpricepredictor.herokuapp.com/
